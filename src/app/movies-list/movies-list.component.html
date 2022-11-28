@@ -1,0 +1,27 @@
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Score
+        </th>
+    </tr>
+    <tr *ngFor="let movie of movies">
+        <td>
+            {{movie.title}}
+        </td>
+        <td class="description">
+            {{movie.description}}
+        </td>
+        <td>
+            {{movie.score.toFixed(2)}}
+        </td>
+        <td>
+            <button (click)="convertToJSON(movie)">JSONIFY</button>
+        </td>
+    </tr>
+</table>

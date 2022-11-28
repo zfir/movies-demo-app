@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-demo-app": {
+    "movies-demo-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-demo-app",
+            "outputPath": "dist/movies-demo-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-demo-app:build:production"
+              "browserTarget": "movies-demo-app:build:production"
             },
             "development": {
-              "browserTarget": "angular-demo-app:build:development"
+              "browserTarget": "movies-demo-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-demo-app:build"
+            "browserTarget": "movies-demo-app:build"
           }
         },
         "test": {

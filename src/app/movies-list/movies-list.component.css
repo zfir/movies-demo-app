@@ -1,0 +1,15 @@
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table tr th {
+    text-align: left;
+}
+
+table tr:nth-child(even) { background-color: #f2f2f2; }
