@@ -11,18 +11,26 @@ export class DisplayJSONComponent implements OnChanges {
   @Output() outProcessedJSON = new EventEmitter<ProcessedJSON | undefined>;
 
   public editorJSONOutput: string = "";
-  public viewerJSONOutput: ProcessedJSON | undefined;
+  public viewerJSONOutput: Movie[] = [];
+
+  private storedKey: number | undefined;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['inProcessedJSON']) {
-      this.editorJSONOutput = JSON.stringify(this.inProcessedJSON, null, 2);
-      this.viewerJSONOutput = this.inProcessedJSON as ProcessedJSON | undefined;
+      this.editorJSONOutput = JSON.stringify(this.inProcessedJSON?.movies, null, 2);
+      this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
+      this.storedKey = this.inProcessedJSON?.key as number;
     }
   }
 
   updateJSON(data: string): void {
     this.editorJSONOutput = data;
-    this.viewerJSONOutput = JSON.parse(data) as ProcessedJSON | undefined;
-    this.outProcessedJSON.emit(this.viewerJSONOutput);
+    this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
+    this.outProcessedJSON.emit(
+      {
+        movies: this.viewerJSONOutput,
+        key: this.storedKey
+      }
+    );
   }
 }
