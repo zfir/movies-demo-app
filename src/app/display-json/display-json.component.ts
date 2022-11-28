@@ -11,8 +11,10 @@ export class DisplayJSONComponent implements OnChanges {
   processedJSON: Movie[] = [];
 
   public editorJSONOutput: string = "";
+  public viewerJSONOutput: Movie[] = []
 
   ngOnChanges(): void {
     this.editorJSONOutput = JSON.stringify(this.processedJSON, null, 2);
+    this.viewerJSONOutput = this.processedJSON;
   }
 }

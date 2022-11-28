@@ -33,4 +33,8 @@ export class MoviesListComponent implements OnInit {
     }
     this.processedJSON.emit([modifiedMovie]);
   }
+
+  convertToJSONAll() {
+    this.processedJSON.emit(this.movies);
+  }
 }

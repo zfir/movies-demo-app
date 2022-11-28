@@ -8,6 +8,7 @@ import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { DisplayJSONComponent } from './display-json/display-json.component';
 import { AceEditorModule } from 'ng12-ace-editor';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AceEditorModule } from 'ng12-ace-editor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AceEditorModule
+    AceEditorModule,
+    NgxJsonViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
