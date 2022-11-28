@@ -1,0 +1,14 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+}
+
+.movies-list {
+    height: 100%;
+}
+
+app-display-json {
+    border: 2px solid black;
+    /* height: 100%; */
+}

@@ -1,3 +1,5 @@
 <app-hello-world></app-hello-world>
-<app-movies-list (processedJSON)="updateProcessedJSON($event)"></app-movies-list>
-<app-display-json [processedJSON]="processedJSON"></app-display-json>
+<div id="container">
+    <app-movies-list class="movies-list" (processedJSON)="updateProcessedJSON($event)"></app-movies-list>
+    <app-display-json [processedJSON]="processedJSON"></app-display-json>
+</div>
