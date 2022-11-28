@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Movie } from './models/movie';
+import { Movie, ProcessedJSON } from './models/movie';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,9 @@ import { Movie } from './models/movie';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public processedJSON: Movie[] = [];
+  public processedJSON: ProcessedJSON | undefined;
 
-  updateProcessedJSON(data: Movie[]): void {
+  updateProcessedJSON(data: ProcessedJSON | undefined): void {
     this.processedJSON = data;
   }
 }

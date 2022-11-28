@@ -5,13 +5,12 @@
 }
 
 .movies-list {
-    height: 100%;
     width: 60%;
 }
 
 app-display-json {
     border: 2px solid black;
-    /* height: 100%; */
+    overflow: scroll;
     width: 40%;
     padding: 10px;
 }

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
-import { Movie, MovieController } from '../models/movie';
+import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Movie, MovieController, ProcessedJSON } from '../models/movie';
 import { MoviesAPIService } from '../movies-api.service';
 
 @Component({
@@ -7,8 +7,9 @@ import { MoviesAPIService } from '../movies-api.service';
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.css']
 })
-export class MoviesListComponent implements OnInit {
-  @Output() processedJSON = new EventEmitter<Movie[]>;
+export class MoviesListComponent implements OnInit, OnChanges {
+  @Input() inProcessedJSON: ProcessedJSON | undefined;
+  @Output() outProcessedJSON = new EventEmitter<ProcessedJSON | undefined>;
 
   public movies: Movie[] = [];
 
@@ -16,13 +17,21 @@ export class MoviesListComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['inProcessedJSON'] && this.inProcessedJSON?.key != undefined) {
+      this.movies[this.inProcessedJSON?.key] = (this.inProcessedJSON?.movies as Movie[])[0];
+    } else if (changes['inProcessedJSON'] && this.inProcessedJSON?.key == undefined){
+      this.movies = this.inProcessedJSON?.movies as Movie[];
+    }
+  }
+
   async ngOnInit(): Promise<void> {
     this.moviesAPIService.getMovies().subscribe((data) => {
       this.movies = Object.values(data)[2] as Movie[];
     });
   }
 
-  convertToJSON(data: Movie): void {
+  convertToJSON(data: Movie, index: number): void {
     let modifiedMovie: Movie = {
       title: '',
       description: '',
@@ -31,10 +40,20 @@ export class MoviesListComponent implements OnInit {
     for (let key of MovieController.allowedKeys) {
       modifiedMovie[key] = data[key];
     }
-    this.processedJSON.emit([modifiedMovie]);
+    this.outProcessedJSON.emit(
+      { 
+        movies: [modifiedMovie], 
+        key: index
+      }
+    );
   }
 
   convertToJSONAll() {
-    this.processedJSON.emit(this.movies);
+    this.outProcessedJSON.emit(
+      { 
+        movies: this.movies, 
+        key: undefined 
+      }
+    );
   }
 }

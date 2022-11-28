@@ -1,2 +1,2 @@
-<ace-editor [text]="editorJSONOutput" mode="json"></ace-editor>
+<ace-editor [text]="editorJSONOutput" mode="json" (textChanged)="updateJSON($event)"></ace-editor>
 <ngx-json-viewer [json]="viewerJSONOutput"></ngx-json-viewer>
