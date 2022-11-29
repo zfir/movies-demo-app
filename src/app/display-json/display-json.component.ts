@@ -8,7 +8,7 @@ import { Movie, ProcessedJSON } from '../models/movie';
 })
 export class DisplayJSONComponent implements OnChanges {
   @Input() inProcessedObject: ProcessedJSON | undefined;
-  @Output() outProcessedJSON = new EventEmitter<ProcessedJSON | undefined>;
+  @Output() outProcessedObject = new EventEmitter<ProcessedJSON | undefined>;
 
   public editorJSONOutput: string = "";
   public viewerJSONOutput: Movie[] = [];
@@ -30,7 +30,7 @@ export class DisplayJSONComponent implements OnChanges {
   updateJSON(data: string): void {
     this.editorJSONOutput = data;
     this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
-    this.outProcessedJSON.emit(
+    this.outProcessedObject.emit(
       {
         movies: this.viewerJSONOutput,
         key: this.storedKey

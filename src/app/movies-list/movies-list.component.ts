@@ -9,7 +9,7 @@ import { MoviesAPIService } from '../movies-api.service';
 })
 export class MoviesListComponent implements OnInit, OnChanges {
   @Input() inProcessedObject: ProcessedJSON | undefined;
-  @Output() outProcessedJSON = new EventEmitter<ProcessedJSON | undefined>;
+  @Output() outProcessedObject = new EventEmitter<ProcessedJSON | undefined>;
 
   public movies: Movie[] = [];
 
@@ -33,7 +33,7 @@ export class MoviesListComponent implements OnInit, OnChanges {
 
   convertToObject(data: Movie, index: number): void {
     let modifiedMovie: Movie = new Movie(data.title, data.description, data.score);
-    this.outProcessedJSON.emit(
+    this.outProcessedObject.emit(
       { 
         movies: [modifiedMovie], 
         key: index
@@ -42,7 +42,7 @@ export class MoviesListComponent implements OnInit, OnChanges {
   }
 
   convertToObjectAll() {
-    this.outProcessedJSON.emit(
+    this.outProcessedObject.emit(
       { 
         movies: this.movies, 
         key: undefined 

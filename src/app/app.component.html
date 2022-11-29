@@ -1,5 +1,5 @@
 <app-hello-world></app-hello-world>
 <div id="container">
-    <app-movies-list class="movies-list" [inProcessedObject]="processedJSON" (outProcessedJSON)="updateProcessedJSON($event)"></app-movies-list>
-    <app-display-json [inProcessedObject]="processedJSON" (outProcessedJSON)="updateProcessedJSON($event)"></app-display-json>
+    <app-movies-list class="movies-list" [inProcessedObject]="processedJSON" (outProcessedObject)="updateProcessedJSON($event)"></app-movies-list>
+    <app-display-json [inProcessedObject]="processedJSON" (outProcessedObject)="updateProcessedJSON($event)"></app-display-json>
 </div>
