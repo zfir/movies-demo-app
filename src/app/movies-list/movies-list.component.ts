@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Movie, ProcessedJSON } from '../models/movie';
+import { Movie, ProcessedObject } from '../models/movie';
 import { MoviesAPIService } from '../movies-api.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { MoviesAPIService } from '../movies-api.service';
   styleUrls: ['./movies-list.component.css']
 })
 export class MoviesListComponent implements OnInit, OnChanges {
-  @Input() inProcessedObject: ProcessedJSON | undefined;
-  @Output() outProcessedObject = new EventEmitter<ProcessedJSON | undefined>;
+  @Input() inProcessedObject: ProcessedObject | undefined;
+  @Output() outProcessedObject = new EventEmitter<ProcessedObject | undefined>;
 
   public movies: Movie[] = [];
 

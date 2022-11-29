@@ -1,4 +1,4 @@
-export type ProcessedJSON = {
+export type ProcessedObject = {
     movies: Movie[],
     key: number | undefined
 }

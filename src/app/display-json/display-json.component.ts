@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { Movie, ProcessedJSON } from '../models/movie';
+import { Movie, ProcessedObject } from '../models/movie';
 
 @Component({
   selector: 'app-display-json',
@@ -7,8 +7,8 @@ import { Movie, ProcessedJSON } from '../models/movie';
   styleUrls: ['./display-json.component.css']
 })
 export class DisplayJSONComponent implements OnChanges {
-  @Input() inProcessedObject: ProcessedJSON | undefined;
-  @Output() outProcessedObject = new EventEmitter<ProcessedJSON | undefined>;
+  @Input() inProcessedObject: ProcessedObject | undefined;
+  @Output() outProcessedObject = new EventEmitter<ProcessedObject | undefined>;
 
   public editorJSONOutput: string = "";
   public viewerJSONOutput: Movie[] = [];
