@@ -7,7 +7,7 @@ import { Movie, ProcessedJSON } from '../models/movie';
   styleUrls: ['./display-json.component.css']
 })
 export class DisplayJSONComponent implements OnChanges {
-  @Input() inProcessedJSON: ProcessedJSON | undefined;
+  @Input() inProcessedObject: ProcessedJSON | undefined;
   @Output() outProcessedJSON = new EventEmitter<ProcessedJSON | undefined>;
 
   public editorJSONOutput: string = "";
@@ -16,12 +16,12 @@ export class DisplayJSONComponent implements OnChanges {
   private storedKey: number | undefined;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['inProcessedJSON'] && this.inProcessedJSON?.key != undefined) {
-      this.editorJSONOutput = JSON.stringify(this.inProcessedJSON?.movies, null, 2);
+    if (changes['inProcessedObject'] && this.inProcessedObject?.key != undefined) {
+      this.editorJSONOutput = JSON.stringify(this.inProcessedObject?.movies, null, 2);
       this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
-      this.storedKey = this.inProcessedJSON?.key as number;
-    } else if (changes['inProcessedJSON'] && this.inProcessedJSON?.key == undefined && this.inProcessedJSON?.movies != undefined) {
-      this.editorJSONOutput = JSON.stringify(this.inProcessedJSON?.movies, null, 2);
+      this.storedKey = this.inProcessedObject?.key as number;
+    } else if (changes['inProcessedObject'] && this.inProcessedObject?.key == undefined && this.inProcessedObject?.movies != undefined) {
+      this.editorJSONOutput = JSON.stringify(this.inProcessedObject?.movies, null, 2);
       this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
       this.storedKey = undefined;
     }

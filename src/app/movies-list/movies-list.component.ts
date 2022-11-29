@@ -8,7 +8,7 @@ import { MoviesAPIService } from '../movies-api.service';
   styleUrls: ['./movies-list.component.css']
 })
 export class MoviesListComponent implements OnInit, OnChanges {
-  @Input() inProcessedJSON: ProcessedJSON | undefined;
+  @Input() inProcessedObject: ProcessedJSON | undefined;
   @Output() outProcessedJSON = new EventEmitter<ProcessedJSON | undefined>;
 
   public movies: Movie[] = [];
@@ -18,10 +18,10 @@ export class MoviesListComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['inProcessedJSON'] && this.inProcessedJSON?.key != undefined) {
-      this.movies[this.inProcessedJSON?.key] = (this.inProcessedJSON?.movies as Movie[])[0];
-    } else if (changes['inProcessedJSON'] && this.inProcessedJSON?.key == undefined) {
-      this.movies = this.inProcessedJSON?.movies as Movie[];
+    if (changes['inProcessedObject'] && this.inProcessedObject?.key != undefined) {
+      this.movies[this.inProcessedObject?.key] = (this.inProcessedObject?.movies as Movie[])[0];
+    } else if (changes['inProcessedObject'] && this.inProcessedObject?.key == undefined) {
+      this.movies = this.inProcessedObject?.movies as Movie[];
     }
   }
 
