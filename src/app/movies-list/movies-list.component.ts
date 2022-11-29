@@ -31,7 +31,7 @@ export class MoviesListComponent implements OnInit, OnChanges {
     });
   }
 
-  convertToJSON(data: Movie, index: number): void {
+  convertToObject(data: Movie, index: number): void {
     let modifiedMovie: Movie = new Movie(data.title, data.description, data.score);
     this.outProcessedJSON.emit(
       { 
@@ -41,7 +41,7 @@ export class MoviesListComponent implements OnInit, OnChanges {
     );
   }
 
-  convertToJSONAll() {
+  convertToObjectAll() {
     this.outProcessedJSON.emit(
       { 
         movies: this.movies, 

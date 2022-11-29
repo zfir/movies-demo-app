@@ -1,4 +1,4 @@
-<button (click)="convertToJSONAll()">JSONIFY ALL</button>
+<button (click)="convertToObjectAll()">JSONIFY ALL</button>
 <table>
     <tr>
         <th>
@@ -25,7 +25,7 @@
             {{movie.score.toFixed(2)}}
         </td>
         <td>
-            <button (click)="convertToJSON(movie, indexOfMovie)">JSONIFY</button>
+            <button (click)="convertToObject(movie, indexOfMovie)">JSONIFY</button>
         </td>
     </tr>
 </table>
