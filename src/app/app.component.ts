@@ -7,9 +7,9 @@ import { Movie, ProcessedObject } from './models/movie';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public processedJSON: ProcessedObject | undefined;
+  public processedObject: ProcessedObject | undefined;
 
-  updateProcessedJSON(data: ProcessedObject | undefined): void {
-    this.processedJSON = data;
+  updateProcessedObject(data: ProcessedObject | undefined): void {
+    this.processedObject = data;
   }
 }
