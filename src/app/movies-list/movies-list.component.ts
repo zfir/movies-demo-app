@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Movie, MovieController, ProcessedJSON } from '../models/movie';
+import { Movie, ProcessedJSON } from '../models/movie';
 import { MoviesAPIService } from '../movies-api.service';
 
 @Component({
@@ -32,14 +32,7 @@ export class MoviesListComponent implements OnInit, OnChanges {
   }
 
   convertToJSON(data: Movie, index: number): void {
-    let modifiedMovie: Movie = {
-      title: '',
-      description: '',
-      score: 0
-    };
-    for (let key of MovieController.allowedKeys) {
-      modifiedMovie[key] = data[key];
-    }
+    let modifiedMovie: Movie = new Movie(data.title, data.description, data.score);
     this.outProcessedJSON.emit(
       { 
         movies: [modifiedMovie], 
