@@ -20,7 +20,7 @@ export class MoviesListComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['inProcessedJSON'] && this.inProcessedJSON?.key != undefined) {
       this.movies[this.inProcessedJSON?.key] = (this.inProcessedJSON?.movies as Movie[])[0];
-    } else if (changes['inProcessedJSON'] && this.inProcessedJSON?.key == undefined){
+    } else if (changes['inProcessedJSON'] && this.inProcessedJSON?.key == undefined) {
       this.movies = this.inProcessedJSON?.movies as Movie[];
     }
   }

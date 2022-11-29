@@ -16,10 +16,14 @@ export class DisplayJSONComponent implements OnChanges {
   private storedKey: number | undefined;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['inProcessedJSON']) {
+    if (changes['inProcessedJSON'] && this.inProcessedJSON?.key != undefined) {
       this.editorJSONOutput = JSON.stringify(this.inProcessedJSON?.movies, null, 2);
       this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
       this.storedKey = this.inProcessedJSON?.key as number;
+    } else if (changes['inProcessedJSON'] && this.inProcessedJSON?.key == undefined && this.inProcessedJSON?.movies != undefined) {
+      this.editorJSONOutput = JSON.stringify(this.inProcessedJSON?.movies, null, 2);
+      this.viewerJSONOutput = JSON.parse(this.editorJSONOutput);
+      this.storedKey = undefined;
     }
   }
 
