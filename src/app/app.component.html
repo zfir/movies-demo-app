@@ -1,6 +1,6 @@
 <app-hello-world></app-hello-world>
-<button routerLink="/hello-c1" routerLinkActive="active" ariaCurrentWhenActive="page">Hello Component 1</button>
-<button routerLink="/hello-c2" routerLinkActive="active" ariaCurrentWhenActive="page">Hello Component 2</button>
+<button routerLink="/c1">Show Component 1</button>
+<button routerLink="/c2">Show Component 2</button>
 <div id="container">
     <app-movies-list class="movies-list" [inProcessedObject]="processedObject" (outProcessedObject)="updateProcessedObject($event)"></app-movies-list>
     <app-display-json [inProcessedObject]="processedObject" (outProcessedObject)="updateProcessedObject($event)"></app-display-json>

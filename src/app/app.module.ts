@@ -9,8 +9,8 @@ import { MoviesListComponent } from './movies-list/movies-list.component';
 import { DisplayJSONComponent } from './display-json/display-json.component';
 import { AceEditorModule } from 'ng12-ace-editor';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
-import { HelloC1Component } from './hello-c1/hello-c1.component';
-import { HelloC2Component } from './hello-c2/hello-c2.component';
+import { ComponentOneComponent } from './component-one/component-one.component';
+import { ComponentTwoComponent } from './component-two/component-two.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { HelloC2Component } from './hello-c2/hello-c2.component';
     HelloWorldComponent,
     MoviesListComponent,
     DisplayJSONComponent,
-    HelloC1Component,
-    HelloC2Component
+    ComponentOneComponent,
+    ComponentTwoComponent
   ],
   imports: [
     BrowserModule,

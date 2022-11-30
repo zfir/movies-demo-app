@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelloC2Component } from './hello-c2.component';
+import { ComponentTwoComponent } from './component-two.component';
 
-describe('HelloC2Component', () => {
-  let component: HelloC2Component;
-  let fixture: ComponentFixture<HelloC2Component>;
+describe('ComponentTwoComponent', () => {
+  let component: ComponentTwoComponent;
+  let fixture: ComponentFixture<ComponentTwoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HelloC2Component ]
+      declarations: [ ComponentTwoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HelloC2Component);
+    fixture = TestBed.createComponent(ComponentTwoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
